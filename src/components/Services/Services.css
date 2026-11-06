@@ -1,0 +1,118 @@
+.services {
+  padding-block: var(--space-3xl);
+  background: var(--cream);
+  border-top: 1px solid var(--ink);
+}
+
+.services__list {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--space-2xl);
+  counter-reset: none;
+}
+
+/* Editorial rows: big number · title · description, divided by hairlines */
+.service {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: var(--space-m);
+  row-gap: var(--space-2xs);
+  padding-block: var(--space-l);
+  border-bottom: 1px solid var(--ink);
+}
+
+.service:first-child {
+  border-top: 1px solid var(--ink);
+}
+
+.service__number {
+  grid-row: 1 / span 2;
+  font-family: var(--font-display);
+  font-size: clamp(3.25rem, 2rem + 6vw, 8.5rem);
+  line-height: 0.82;
+  color: var(--ink);
+  transition: color var(--dur-med) var(--ease-out);
+}
+
+.service__title {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: var(--step-2);
+  line-height: 1;
+  align-self: end;
+}
+
+/* Orange square that grows in on hover */
+.service__mark {
+  flex: none;
+  width: 0.5em;
+  height: 0.5em;
+  background: var(--orange);
+  transform: scale(0.55);
+  transform-origin: left center;
+  transition: transform var(--dur-med) var(--ease-out);
+}
+
+.service__body {
+  max-width: 46ch;
+  color: var(--ink-soft);
+}
+
+/* Orange wipe across the row */
+.service::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-med) var(--ease-out);
+}
+
+.services__list {
+  position: relative;
+  isolation: isolate;
+}
+
+@media (hover: hover) {
+  .service:hover .service__mark {
+    transform: scale(1);
+  }
+
+  .service:hover::before {
+    transform: scaleX(1);
+  }
+
+  .service:hover .service__body {
+    color: var(--ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service::before,
+  .service__mark {
+    transition: none;
+  }
+}
+
+@media (min-width: 48em) {
+  .service {
+    grid-template-columns: 9rem minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: center;
+    padding-inline: var(--space-s);
+    column-gap: var(--space-xl);
+  }
+
+  .service__number {
+    grid-row: auto;
+    font-size: clamp(4rem, 2rem + 4vw, 7rem);
+  }
+
+  .service__title {
+    align-self: center;
+    font-size: var(--step-3);
+  }
+}

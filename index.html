@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phoenix Web Design &amp; App Development | Hunter Made</title>
+    <meta
+      name="description"
+      content="Hunter Made is an independent Phoenix creative studio building distinctive websites, redesigns, and custom applications for small businesses. Let's make something good."
+    />
+    <meta name="theme-color" content="#F5F0E7" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- @head: build-time tags (Open Graph, canonical, JSON-LD, preloads) are injected here by scripts/postbuild.mjs -->
+    <script>
+      // Enables scroll-reveal styles. Safety net: if the app hasn't started
+      // within 4s (blocked/failed JS), drop the class so nothing stays hidden.
+      document.documentElement.classList.add('js')
+      setTimeout(function () {
+        if (!window.__hmReady) document.documentElement.classList.remove('js')
+      }, 4000)
+    </script>
+  </head>
+  <body>
+    <div id="root"><!--app--></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+.site-footer {
+  background: var(--ink);
+  color: var(--cream);
+  padding-block: var(--space-2xl) var(--space-l);
+}
+
+.site-footer a {
+  text-decoration: none;
+}
+
+.site-footer__top {
+  display: grid;
+  gap: var(--space-m);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid rgb(245 240 231 / 0.3);
+}
+
+.site-footer__brand {
+  display: inline-flex;
+  justify-self: start;
+}
+
+.site-footer .wordmark--poster {
+  font-size: clamp(4.5rem, 2rem + 13vw, 13rem);
+}
+
+.site-footer__tagline {
+  max-width: 22ch;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-xl) var(--space-m);
+  padding-block: var(--space-xl);
+}
+
+.site-footer__heading {
+  margin-bottom: var(--space-xs);
+  font-family: var(--font-mono);
+  color: rgb(245 240 231 / 0.75);
+  text-transform: uppercase;
+}
+
+.site-footer__list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.site-footer__list a {
+  display: inline-block;
+  padding-block: 0.3rem;
+  background: linear-gradient(var(--orange), var(--orange)) left 92% / 0% 2px no-repeat;
+  transition: background-size var(--dur-med) var(--ease-out);
+}
+
+.site-footer__list a:hover,
+.site-footer__list a:focus-visible {
+  background-size: 100% 2px;
+}
+
+.site-footer__cta {
+  grid-column: 1 / -1;
+}
+
+.site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-xs) var(--space-m);
+  padding-top: var(--space-m);
+  border-top: 1px solid rgb(245 240 231 / 0.3);
+  color: rgb(245 240 231 / 0.75);
+}
+
+.site-footer__legal a {
+  display: inline-block;
+  padding-block: 0.5rem;
+  margin-block: -0.5rem;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+
+@media (min-width: 56em) {
+  .site-footer__top {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: end;
+    column-gap: var(--space-2xl);
+  }
+
+  .site-footer__tagline {
+    justify-self: end;
+    text-align: right;
+  }
+
+  .site-footer__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+    align-items: start;
+  }
+
+  .site-footer__cta {
+    grid-column: auto;
+  }
+}

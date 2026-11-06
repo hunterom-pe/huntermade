@@ -1,0 +1,66 @@
+.cred {
+  background: var(--ink);
+  color: var(--cream);
+  padding-block: var(--space-2xl);
+}
+
+.cred__inner {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: end;
+}
+
+.cred__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-m);
+}
+
+.cred__stat {
+  display: flex;
+  flex-direction: column-reverse; /* value visually above its label */
+  gap: var(--space-2xs);
+  padding-top: var(--space-xs);
+  border-top: 1px solid rgb(245 240 231 / 0.35);
+}
+
+.cred__value {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 2rem + 11vw, 11rem);
+  line-height: 0.85;
+  color: var(--orange); /* 5.3:1 on ink, display size */
+}
+
+.cred__label {
+  color: var(--cream);
+}
+
+.cred__line {
+  display: flex;
+  gap: 0.6em;
+  max-width: 22ch;
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.cred__mark {
+  flex: none;
+  width: 0.4em;
+  height: 0.4em;
+  margin-top: 0.2em;
+  background: var(--orange);
+}
+
+@media (min-width: 60em) {
+  .cred__inner {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: var(--space-2xl);
+  }
+
+  .cred__line {
+    font-size: clamp(2rem, 1rem + 2vw, 3.25rem);
+  }
+}

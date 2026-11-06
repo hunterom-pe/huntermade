@@ -1,0 +1,382 @@
+/* ==========================================================================
+   Selected Work
+   ========================================================================== */
+
+.work {
+  padding-block: var(--space-3xl);
+  background: var(--cream);
+  border-top: 1px solid var(--ink);
+}
+
+.work__projects {
+  display: grid;
+  gap: var(--space-2xl);
+  margin-top: var(--space-2xl);
+}
+
+.project {
+  position: relative;
+  display: grid;
+  gap: var(--space-xl);
+  padding: clamp(1.25rem, 0.5rem + 3vw, 3.5rem);
+  border: 2px solid var(--ink);
+}
+
+/* ---- Project info ------------------------------------------------------- */
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-s);
+  color: var(--ink);
+}
+
+.project-info__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6em;
+}
+
+.project-info__num {
+  font-weight: 700;
+}
+
+.project-info__name {
+  font-size: var(--step-3);
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+.project-info__desc {
+  max-width: 40ch;
+}
+
+.project-info__details {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.35em;
+}
+
+.project-info__details li {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.project-info__details li::before {
+  content: '';
+  flex: none;
+  width: 0.55em;
+  height: 0.55em;
+  background: currentColor;
+}
+
+.project-info__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs) var(--space-m);
+  margin-top: var(--space-xs);
+}
+
+.project-info__code {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35em;
+}
+
+.project-info__code:hover {
+  text-decoration-color: var(--orange);
+}
+
+.project-info--dark {
+  color: var(--cream);
+}
+
+.project-info--dark .project-info__code:hover {
+  color: var(--orange);
+}
+
+/* ---- Device frames ------------------------------------------------------ */
+
+.browser-frame {
+  border: 2px solid var(--ink);
+  background: var(--cream);
+  box-shadow: 10px 10px 0 var(--ink);
+  transition:
+    translate var(--dur-med) var(--ease-out),
+    box-shadow var(--dur-med) var(--ease-out);
+}
+
+.browser-frame__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: 0.55rem 0.75rem;
+  border-bottom: 2px solid var(--ink);
+  background: var(--cream);
+}
+
+.browser-frame__dots {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.browser-frame__dots i {
+  width: 0.6rem;
+  height: 0.6rem;
+  border: 1.5px solid var(--ink);
+}
+
+.browser-frame__dots i:first-child {
+  background: var(--orange);
+}
+
+.browser-frame__url {
+  flex: 1;
+  overflow: hidden;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.browser-frame img {
+  width: 100%;
+  height: auto;
+}
+
+.phone-frame {
+  overflow: hidden;
+  border: clamp(4px, 0.6vw, 7px) solid var(--ink);
+  border-radius: clamp(1rem, 2.4vw, 1.9rem);
+  background: var(--ink);
+  transition: translate var(--dur-med) var(--ease-out), rotate var(--dur-med) var(--ease-out);
+}
+
+.phone-frame img {
+  width: 100%;
+  height: auto;
+  border-radius: calc(clamp(1rem, 2.4vw, 1.9rem) - 6px);
+}
+
+/* ---- 01 Feature (orange) ------------------------------------------------ */
+
+.project--feature {
+  background: var(--orange);
+}
+
+.project__media--feature {
+  position: relative;
+  padding-bottom: 12%;
+}
+
+.feature__phone {
+  position: absolute;
+  right: -2%;
+  bottom: -2%;
+  width: 26%;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.project__square--feature {
+  position: absolute;
+  top: -1.25rem;
+  left: -1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--ink);
+}
+
+/* ---- 02 Showcase (lilac) ------------------------------------------------ */
+
+.project--showcase {
+  background: var(--lilac);
+}
+
+.project__media--fan {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  padding-block: var(--space-m) var(--space-l);
+}
+
+.fan__phone {
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.fan__phone--1 {
+  rotate: -4deg;
+  margin-top: 12%;
+}
+
+.fan__phone--2 {
+  z-index: 1;
+}
+
+.fan__phone--3 {
+  rotate: 4deg;
+  margin-top: 22%;
+}
+
+.showcase__tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  padding: 0.35em 0.7em;
+  background: var(--ink);
+  color: var(--lilac);
+  text-transform: none;
+}
+
+/* ---- 03 + 04 Pair ------------------------------------------------------- */
+
+.work__pair {
+  display: grid;
+  gap: var(--space-2xl);
+}
+
+.project--spec {
+  background: var(--cream-dim);
+}
+
+.project--rollit {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.project__media--duo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  max-width: 32rem;
+}
+
+.duo__phone--2 {
+  margin-top: 18%;
+}
+
+.project--spec .phone-frame {
+  box-shadow: 6px 6px 0 var(--orange);
+}
+
+.project--rollit .phone-frame {
+  border-color: #3a3a3a;
+  box-shadow: 6px 6px 0 var(--orange);
+}
+
+/* ---- Hover: frames lift, shadows deepen --------------------------------- */
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .project--feature:hover .browser-frame {
+    translate: -4px -4px;
+    box-shadow: 14px 14px 0 var(--ink);
+  }
+
+  .project--feature:hover .feature__phone {
+    translate: 0 -8px;
+  }
+
+  .project--showcase:hover .fan__phone--1 {
+    rotate: -6deg;
+  }
+
+  .project--showcase:hover .fan__phone--3 {
+    rotate: 6deg;
+  }
+
+  .project--showcase:hover .fan__phone--2,
+  .project--pair:hover .duo__phone--1 {
+    translate: 0 -8px;
+  }
+
+  .project--pair:hover .duo__phone--2 {
+    translate: 0 6px;
+  }
+}
+
+/* ---- Desktop composition ------------------------------------------------ */
+
+@media (min-width: 60em) {
+  .work__projects {
+    gap: var(--space-3xl);
+  }
+
+  .project--feature {
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    align-items: end;
+    column-gap: var(--space-2xl);
+  }
+
+  .project--showcase {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    align-items: center;
+    column-gap: var(--space-2xl);
+    /* break the grid a little */
+    margin-left: clamp(0rem, 6vw, 8rem);
+  }
+
+  .work__pair {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: start;
+    gap: var(--space-xl);
+  }
+
+  .project--rollit {
+    margin-top: var(--space-3xl);
+  }
+
+  .project--pair {
+    gap: var(--space-l);
+  }
+
+  .project--spec .project__media--duo {
+    max-width: 30rem;
+  }
+}
+
+/* Orange-on-orange guard: the feature panel's primary button flips to ink */
+.project--feature .project-info__primary {
+  --btn-bg: var(--ink);
+  --btn-fg: var(--cream);
+}
+
+@media (hover: hover) {
+  .project--feature .project-info__primary:hover {
+    box-shadow: 3px 3px 0 var(--cream);
+  }
+}
+
+/* Phones/tablets: media leads, like the other projects */
+@media (max-width: 59.99em) {
+  .project--showcase .project__media--fan {
+    order: -1;
+  }
+}
+
+/* Never let a panel's content push past the viewport on very small phones */
+.project {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 23.4375em) {
+  .project-info .btn {
+    white-space: normal;
+    text-align: center;
+  }
+}

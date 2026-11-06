@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>HM — Hunter Made</title>
+  <!-- Orange square + condensed HM monogram, drawn as shapes (no font dependency) -->
+  <rect width="64" height="64" fill="#F36B32"/>
+  <g fill="#222222">
+    <!-- H -->
+    <rect x="9" y="12" width="7" height="40"/>
+    <rect x="22" y="12" width="7" height="40"/>
+    <rect x="16" y="28" width="6" height="7"/>
+    <!-- M -->
+    <rect x="35" y="12" width="7" height="40"/>
+    <rect x="49" y="12" width="7" height="40"/>
+    <polygon points="42,12 45.5,12 45.5,34 42,26"/>
+    <polygon points="45.5,12 49,12 49,26 45.5,34"/>
+  </g>
+</svg>

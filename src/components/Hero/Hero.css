@@ -1,0 +1,431 @@
+/* ==========================================================================
+   Hero — split editorial poster
+   Mobile-first: one column (label → wordmark → headline → art → copy → CTAs)
+   ≥60em: cream type column on the left, lunar art panel bleeding right.
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  background: var(--cream);
+  /* full-bleed; left column aligns itself to the site container */
+  --edge: max(var(--gutter), calc((100vw - var(--max-width)) / 2 + var(--gutter)));
+}
+
+/* Print grain over the whole hero — static, very low contrast */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.13  0 0 0 0 0.12  0 0 0 0 0.11  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  padding-inline: var(--gutter);
+  padding-block: var(--space-m) var(--space-xl);
+}
+
+/* ---- Type column -------------------------------------------------------- */
+
+.hero__label {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  color: var(--ink);
+}
+
+.hero__label-mark {
+  flex: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--orange);
+}
+
+.hero__mark {
+  margin-top: var(--space-s);
+  /* the wordmark should fill the column on phones */
+  --wm-size: clamp(5.25rem, 33vw, 13rem);
+}
+
+.hero__mark .wordmark--poster {
+  font-size: var(--wm-size);
+}
+
+.hero__title {
+  max-width: 15ch;
+  margin-top: var(--space-m);
+  padding-top: var(--space-s);
+  border-top: 2px solid var(--ink);
+  font-size: clamp(2.1rem, 1.3rem + 4vw, 3.75rem);
+  line-height: 0.98;
+}
+
+.hero__lead {
+  max-width: 34ch;
+  margin-top: var(--space-l);
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-l);
+}
+
+
+
+
+/* ---- Art panel ---------------------------------------------------------- */
+
+.hero__art {
+  position: relative;
+  z-index: var(--z-art);
+  /* bleed to the screen edges on phones */
+  margin: calc(var(--space-2xl) + 1.25rem) calc(-1 * var(--gutter)) 0;
+  aspect-ratio: 1 / 1.02;
+  background: var(--void);
+  isolation: isolate;
+}
+
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero__photo picture {
+  display: contents;
+}
+
+/* The Moon is oversized and cropped by the frame for drama */
+.hero__moon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 128%;
+  height: auto;
+  max-width: none;
+  aspect-ratio: 1;
+  translate: -38% -50%;
+  filter: grayscale(1) contrast(1.05);
+}
+
+/* Fine registration grid over the photograph */
+.hero__grid-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgb(245 240 231 / 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(245 240 231 / 0.16) 1px, transparent 1px);
+  background-size: 25% 100%, 100% 33.333%;
+  background-position: -1px 0, 0 -1px;
+}
+
+.hero__cross {
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  translate: -50% -50%;
+}
+
+.hero__cross::before,
+.hero__cross::after {
+  content: '';
+  position: absolute;
+  background: var(--cream);
+}
+
+.hero__cross::before {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.hero__cross::after {
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+}
+
+.hero__cross--a {
+  top: 33.333%;
+  left: 25%;
+}
+
+.hero__cross--b {
+  top: 66.666%;
+  left: 75%;
+}
+
+/* Orange geometry -------------------------------------------------------- */
+
+.hero__block {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  background: var(--orange);
+  transition: translate var(--dur-slow) var(--ease-out);
+}
+
+/* A: the big slab that straddles the art's top edge into the cream */
+.hero__block--a {
+  top: -9%;
+  left: var(--gutter);
+  width: 46%;
+  height: 25%;
+  display: flex;
+  align-items: flex-end;
+  padding: 0.75rem;
+  --enter-from-x: -30%;
+}
+
+.hero__block-text {
+  display: flex;
+  flex-direction: column;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* B: square on the lower right, crossing the bottom edge */
+.hero__block--b {
+  right: 12%;
+  bottom: -6%;
+  width: 16%;
+  aspect-ratio: 1;
+  --enter-from-y: 60%;
+}
+
+/* C: thin vertical bar */
+.hero__block--c {
+  right: 0;
+  top: 22%;
+  width: 3.5%;
+  height: 30%;
+  --enter-from-y: -40%;
+}
+
+.hero__fig,
+.hero__caption {
+  position: absolute;
+  z-index: 2;
+  color: rgb(245 240 231 / 0.82);
+  font-size: 0.6875rem;
+}
+
+.hero__fig {
+  top: var(--space-s);
+  right: var(--space-s);
+  padding: 0.3em 0.5em;
+  background: var(--void);
+}
+
+.hero__caption {
+  left: var(--space-s);
+  bottom: var(--space-s);
+  max-width: 62%;
+  padding: 0.3em 0.5em;
+  margin-left: -0.5em;
+  background: var(--void);
+}
+
+/* Restrained hover: the geometry nudges, the Moon stays put */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .hero__art:hover .hero__block--a {
+    translate: 10px 0;
+  }
+
+  .hero__art:hover .hero__block--b {
+    translate: 0 -10px;
+  }
+
+  .hero__art:hover .hero__block--c {
+    translate: 0 14px;
+  }
+}
+
+/* ---- Mobile order ------------------------------------------------------- */
+/* label → wordmark → headline → art → lead → CTAs → meta */
+
+.hero__art {
+  order: 4;
+}
+
+.hero__lead {
+  order: 5;
+  margin-top: calc(var(--space-2xl) + 1rem);
+}
+
+.hero__ctas {
+  order: 6;
+}
+
+
+@media (max-width: 29.99em) {
+  /* phones: CTAs stack full-width for comfortable thumbs */
+  .hero__ctas .btn {
+    flex: 1 1 100%;
+  }
+}
+
+/* ---- Tablet portrait ---------------------------------------------------- */
+
+@media (min-width: 40em) and (max-width: 59.99em) {
+  .hero__art {
+    margin-top: calc(var(--space-2xl) + 2rem);
+    aspect-ratio: 16 / 11;
+  }
+
+  .hero__moon {
+    width: 92%;
+    translate: -30% -50%;
+  }
+
+  .hero__block--a {
+    width: 36%;
+    height: 24%;
+  }
+
+  .hero__block--b {
+    width: 11%;
+  }
+
+  .hero__title {
+    max-width: 18ch;
+  }
+}
+
+/* ---- Desktop split ------------------------------------------------------ */
+
+@media (min-width: 60em) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.98fr);
+    grid-template-rows: auto auto minmax(var(--space-l), 1fr) auto auto auto;
+    min-height: calc(100svh - var(--header-h));
+    padding: 0;
+  }
+
+  .hero__grid > :not(.hero__art) {
+    grid-column: 1;
+    margin-left: var(--edge);
+    /* keep a clear lane for the orange slab that crosses the split */
+    margin-right: clamp(3rem, 6vw, 7rem);
+  }
+
+  .hero__label {
+    grid-row: 1;
+    margin-top: var(--space-l);
+  }
+
+  .hero__mark {
+    grid-row: 2;
+    margin-top: var(--space-m);
+    --wm-size: clamp(6rem, min(13vw, 22svh), 15rem);
+  }
+
+  .hero__title {
+    grid-row: 4;
+    max-width: 17ch;
+    margin-top: 0;
+    font-size: clamp(2.25rem, 0.9rem + 2.5vw, 3.75rem);
+  }
+
+  .hero__lead {
+    grid-row: 5;
+    max-width: 40ch;
+    margin-top: var(--space-m);
+  }
+
+  .hero__ctas {
+    grid-row: 6;
+    margin-block: var(--space-l) clamp(2rem, 6svh, 4rem);
+  }
+
+
+  .hero__art {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    margin: 0;
+    aspect-ratio: auto;
+    min-height: 34rem;
+  }
+
+  .hero__moon {
+    width: max(118%, 112svh);
+    translate: -40% -50%;
+  }
+
+  /* Slab now straddles the vertical split between cream and photo */
+  .hero__block--a {
+    top: auto;
+    bottom: 14%;
+    left: -11%;
+    width: 38%;
+    height: 21%;
+    padding: 1rem;
+  }
+
+  .hero__block--b {
+    top: 9%;
+    right: 14%;
+    bottom: auto;
+    width: 11%;
+  }
+
+  .hero__block--c {
+    top: auto;
+    bottom: 0;
+    right: 6%;
+    width: 2.5%;
+    height: 36%;
+  }
+
+  .hero__fig {
+    top: var(--space-m);
+    left: var(--space-m);
+    right: auto;
+  }
+
+  .hero__caption {
+    left: var(--space-m);
+    bottom: var(--space-m);
+    max-width: 40%;
+  }
+}
+
+@media (min-width: 60em) and (max-height: 52em) {
+  /* shorter laptop screens: tighten so the CTAs stay above the fold */
+  .hero__label {
+    margin-top: var(--space-m);
+  }
+
+  .hero__mark {
+    margin-top: var(--space-xs);
+    --wm-size: clamp(5rem, 18svh, 10rem);
+  }
+
+  .hero__title {
+    padding-top: var(--space-xs);
+    font-size: clamp(2rem, 5.6svh, 3rem);
+  }
+
+  .hero__lead {
+    margin-top: var(--space-s);
+    font-size: var(--step-0);
+  }
+
+  .hero__ctas {
+    margin-block: var(--space-m) var(--space-l);
+  }
+}
