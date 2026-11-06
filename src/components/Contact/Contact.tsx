@@ -14,7 +14,7 @@ export function Contact() {
     <section id="contact" className="contact" aria-labelledby="contact-title">
       <div className="container contact__layout">
         <div className="contact__head">
-          <SectionHead index="05" label="Contact" titleId="contact-title" title={contact.title} tone="onOrange" />
+          <SectionHead index="06" label="Contact" titleId="contact-title" title={contact.title} tone="onOrange" />
         </div>
 
           <div className="contact__intro" data-reveal>

@@ -1,8 +1,7 @@
 .contact {
   padding-block: var(--space-3xl);
   background: var(--orange);
-  /* heavy rule separates it from the orange Process section above */
-  border-top: 10px solid var(--ink);
+  border-top: 1px solid var(--ink);
 }
 
 .contact .section-head__title {

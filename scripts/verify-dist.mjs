@@ -19,10 +19,15 @@ const index = read('index.html')
 // Pre-rendered content (visible without JavaScript)
 check(!index.includes('<!--app-->'), 'index.html is pre-rendered (no empty app marker)')
 check(/<h1[^>]*>The internet could use a little more personality\.<\/h1>/.test(index), 'H1 headline is in the static HTML')
-for (const id of ['top', 'services', 'work', 'about', 'process', 'contact'])
+for (const id of ['top', 'services', 'work', 'about', 'process', 'faq', 'contact'])
   check(index.includes(`id="${id}"`), `section #${id} present`)
 for (const name of ['Precision QA Consulting', 'asl // missed connections', 'Spec // Cocktail Sommelier', 'Roll It // Movie Picker'])
   check(index.includes(name), `project "${name}" present`)
+
+// FAQ answers are in the static HTML (collapsed visually, still indexable)
+check((index.match(/<details[^>]*class="faq__item"/g) || []).length === 5, 'FAQ: 5 questions pre-rendered')
+check(!/<details[^>]*class="faq__item"[^>]*\sopen/.test(index), 'FAQ: all collapsed by default')
+check(index.includes('provide a clear, personalized quote'), 'FAQ answers present in HTML')
 
 // SEO
 check(/<title>Phoenix Web Design &amp; App Development \| Hunter Made<\/title>/.test(index), 'title tag')

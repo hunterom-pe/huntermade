@@ -89,3 +89,33 @@ export const contact = {
     body: 'Thanks for reaching out! I’ll take a look at your project and get back to you soon.',
   },
 }
+
+/**
+ * FAQ — proposed answers, not contractual terms. Keep them in line with the
+ * services and agreements Hunter actually offers.
+ */
+export const faq = {
+  title: 'A few good questions.',
+  items: [
+    {
+      q: 'How much does a website cost?',
+      a: 'Every project is different. I’ll learn about your needs, discuss your goals, and provide a clear, personalized quote before any work begins.',
+    },
+    {
+      q: 'How long will my project take?',
+      a: 'Timelines depend on the size and complexity of your project. We’ll discuss the details and agree on a realistic schedule before getting started.',
+    },
+    {
+      q: 'Who handles hosting and domains?',
+      a: 'I can help you choose and set up the right hosting and domain for your business. My preference is to keep those accounts under your control.',
+    },
+    {
+      q: 'Will I own my website?',
+      a: 'Ownership and deliverables will be clearly outlined in our agreement, including any third-party tools or licenses.',
+    },
+    {
+      q: 'Can I update the website myself?',
+      a: 'Absolutely something we can plan for. Depending on your needs, I can build in simple content-editing capabilities or provide ongoing support for updates.',
+    },
+  ],
+}

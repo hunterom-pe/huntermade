@@ -1,6 +1,7 @@
 import { About } from './components/About/About'
 import { Contact } from './components/Contact/Contact'
 import { Credibility } from './components/Credibility/Credibility'
+import { Faq } from './components/Faq/Faq'
 import { Footer } from './components/Footer/Footer'
 import { Header } from './components/Header/Header'
 import { Hero } from './components/Hero/Hero'
@@ -25,6 +26,7 @@ export default function App() {
         <Credibility />
         <About />
         <Process />
+        <Faq />
         <Contact />
       </main>
       <Footer />
