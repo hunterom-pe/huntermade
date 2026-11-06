@@ -87,7 +87,7 @@ The photo is automatically shown in black and white with the orange blocks, and 
 In `src/data/site.ts` → `links`:
 
 ```ts
-calendly: 'https://calendly.com/your-handle/intro',   // shows "Book a free consult" in Contact + after a submission
+calendly: 'https://calendly.com/your-handle/intro',   // shows "Prefer to talk? Book a call" in Contact + after a submission
 instagram: 'https://instagram.com/your-handle',       // shows in the footer
 ```
 

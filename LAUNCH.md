@@ -56,7 +56,7 @@ Legend: ✅ done and verified locally · ⬜ to do · 🟧 needs Hunter's input 
 | --- | --- | --- |
 | 🟧 Production domain | Netlify | Nothing is invented; canonical and sitemap appear automatically once it's set. |
 | 🟧 Portrait photo | `public/images/hunter-portrait.jpg` + `portrait` in `src/data/site.ts` | 4:5 ratio, about 1000×1250px. Shown in black and white automatically. |
-| 🟧 Calendly URL (optional) | `links.calendly` in `src/data/site.ts` | Adds "Book a free consult" in Contact and after a submission. |
+| ✅ Calendly URL | `links.calendly` in `src/data/site.ts` | Set to calendly.com/hunterom8-proton. Shown in Contact and after a submission. |
 | 🟧 Instagram URL (optional) | `links.instagram` in `src/data/site.ts` | Adds it to the footer. |
 | 🟧 Privacy policy review | `privacy/index.html` | A plain-language draft, not legal advice. It names *Precision QA Consulting LLC* as the operator; please confirm that wording. |
 | 🟧 Analytics choice | Netlify env vars | Plausible (`VITE_PLAUSIBLE_DOMAIN`) is ready. The Meta Pixel needs a consent UI and a privacy update before `VITE_META_PIXEL_ID` does anything. |

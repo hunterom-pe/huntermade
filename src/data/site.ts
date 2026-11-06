@@ -31,7 +31,7 @@ export const site = {
   links: {
     github: 'https://github.com/hunterom-pe',
     instagram: null as string | null, // add when ready
-    calendly: null as string | null, // add your Calendly URL when ready
+    calendly: 'https://calendly.com/hunterom8-proton' as string | null, // set to null to hide
   },
 
   cta: {

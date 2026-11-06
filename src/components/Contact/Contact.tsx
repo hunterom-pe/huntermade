@@ -24,7 +24,7 @@ export function Contact() {
 
             {site.links.calendly && (
               <a className="contact__consult" href={site.links.calendly} target="_blank" rel="noopener noreferrer">
-                <span className="label">Prefer to talk? Book a free consult</span>
+                <span className="label">Prefer to talk? Book a call</span>
                 <span aria-hidden="true">↗</span>
                 <span className="visually-hidden"> (opens in a new tab)</span>
               </a>
