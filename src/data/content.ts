@@ -44,7 +44,7 @@ export const about = {
   paragraphs: [
     'I’m Hunter Ortega-Mathews, a Phoenix-based technology professional with over 13 years of experience in software quality assurance.',
     'I’ve spent my career understanding what makes digital products work, from usability and functionality to the small details people often overlook.',
-    'Today, I bring that experience into building websites and applications that combine thoughtful design with reliable functionality.',
+    'Today, I combine thoughtful design, modern AI-assisted development tools, and that quality background to create websites and applications that work as well as they look.',
     'I believe technology should be useful, intuitive, and a little more interesting to look at.',
   ],
 }
