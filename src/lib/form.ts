@@ -42,13 +42,13 @@ export function validate(values: FormValues): FormErrors {
 
   if (!v('name')) errors.name = 'Please tell me your name.'
   if (!v('email')) errors.email = 'Please add your email so I can reply.'
-  else if (!EMAIL_RE.test(v('email'))) errors.email = 'That email doesn’t look quite right — check for typos.'
+  else if (!EMAIL_RE.test(v('email'))) errors.email = 'That email doesn’t look quite right. Please check for typos.'
   if (v('website') && !SITE_RE.test(v('website')))
     errors.website = 'Enter a web address like yourbusiness.com, or leave this blank.'
   if (!v('projectType')) errors.projectType = 'Choose the option that fits best.'
   if (!v('message')) errors.message = 'Tell me a little about your project.'
   else if (v('message').length < MESSAGE_MIN)
-    errors.message = `A few more words would help — at least ${MESSAGE_MIN} characters.`
+    errors.message = `A few more words would help (at least ${MESSAGE_MIN} characters).`
 
   return errors
 }

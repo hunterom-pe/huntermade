@@ -25,7 +25,7 @@ export function Portrait({ src, alt = 'Portrait of Hunter Ortega-Mathews' }: Por
       </div>
       <span className="portrait__block portrait__block--a" aria-hidden="true" />
       <span className="portrait__block portrait__block--b" aria-hidden="true" />
-      <figcaption className="portrait__caption label">Hunter Ortega-Mathews — Phoenix, AZ</figcaption>
+      <figcaption className="portrait__caption label">Hunter Ortega-Mathews / Phoenix, AZ</figcaption>
     </figure>
   )
 }

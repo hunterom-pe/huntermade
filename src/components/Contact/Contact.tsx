@@ -32,7 +32,7 @@ export function Contact() {
 
             <p className="contact__where label">
               <span className="contact__square" aria-hidden="true" />
-              {site.location.city}, {site.location.region} — working with businesses across the Valley and beyond
+              {site.location.city}, {site.location.region}. Working with businesses across the Valley and beyond.
             </p>
           </div>
 

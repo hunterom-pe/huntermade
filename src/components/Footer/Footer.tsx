@@ -10,7 +10,7 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container">
         <div className="site-footer__top">
-          <a href="#top" className="site-footer__brand" aria-label="Hunter Made — back to top">
+          <a href="#top" className="site-footer__brand" aria-label="Hunter Made, back to top">
             <Wordmark size="poster" tone="onInk" />
           </a>
           <p className="site-footer__tagline">{site.tagline}</p>

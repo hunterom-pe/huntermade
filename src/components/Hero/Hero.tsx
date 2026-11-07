@@ -17,7 +17,7 @@ export function Hero() {
       <div className="hero__grid">
         <p className="hero__label label" data-enter style={delay(0)}>
           <span className="hero__label-mark" aria-hidden="true" />
-          Independent web &amp; app development — {site.location.city}, {site.location.regionShort}
+          Independent web &amp; app development / {site.location.city}, {site.location.regionShort}
         </p>
 
         <div className="hero__mark" data-enter="wipe" style={delay(80)}>

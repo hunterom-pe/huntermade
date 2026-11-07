@@ -13,13 +13,13 @@ type SectionHeadProps = {
   tone?: 'default' | 'onOrange' | 'onDark'
 }
 
-/** Shared editorial section header: (01) — LABEL, big title, optional intro. */
+/** Shared editorial section header: (01) / LABEL, big title, optional intro. */
 export function SectionHead({ index, label, title, titleId, intro, tone = 'default' }: SectionHeadProps) {
   return (
     <header className={`section-head section-head--${tone}`} data-reveal>
       <p className="section-head__label label">
         <span className="section-head__index">({index})</span>
-        <span aria-hidden="true">—</span>
+        <span aria-hidden="true">/</span>
         {label}
       </p>
       <h2 id={titleId} className="section-head__title">

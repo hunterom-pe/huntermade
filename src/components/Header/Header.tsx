@@ -45,7 +45,7 @@ export function Header() {
   return (
     <header className={`site-header${open ? ' is-open' : ''}`}>
       <div className="site-header__bar container">
-        <a className="site-header__brand" href="#top" aria-label="Hunter Made — back to top">
+        <a className="site-header__brand" href="#top" aria-label="Hunter Made, back to top">
           <Wordmark size="nav" />
         </a>
 
@@ -95,7 +95,7 @@ export function Header() {
               {site.cta.primary.label} <span className="btn__arrow" aria-hidden="true">→</span>
             </a>
             <p className="label">
-              {site.location.city}, {site.location.regionShort} — {site.location.coordinates}
+              {site.location.city}, {site.location.regionShort} / {site.location.coordinates}
             </p>
           </div>
         </nav>
