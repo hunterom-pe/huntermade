@@ -91,3 +91,9 @@
 .portrait--photo .portrait__grid {
   display: none;
 }
+
+/* With a real photo: a smaller square, nudged up so it frames rather than crowds the face */
+.portrait--photo .portrait__block--a {
+  top: 6%;
+  width: 22%;
+}
