@@ -15,7 +15,7 @@ export function Portrait({ src, alt = 'Portrait of Hunter Ortega-Mathews' }: Por
     <figure className={`portrait${src ? ' portrait--photo' : ''}`}>
       <div className="portrait__frame">
         {src ? (
-          <img className="portrait__img" src={src} alt={alt} width={800} height={1000} loading="lazy" decoding="async" />
+          <img className="portrait__img" src={src} alt={alt} width={1000} height={1250} loading="lazy" decoding="async" />
         ) : (
           <div className="portrait__placeholder" aria-hidden="true">
             <span className="portrait__monogram">HM</span>

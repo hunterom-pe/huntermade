@@ -86,3 +86,8 @@
     translate: 0 -10px;
   }
 }
+
+/* The registration grid suits the placeholder, but shouldn't cross a real face */
+.portrait--photo .portrait__grid {
+  display: none;
+}

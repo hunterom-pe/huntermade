@@ -55,7 +55,7 @@ Legend: ✅ done and verified locally · ⬜ to do · 🟧 needs Hunter's input 
 | Item | Where | Notes |
 | --- | --- | --- |
 | 🟧 Production domain | Netlify | Nothing is invented; canonical and sitemap appear automatically once it's set. |
-| 🟧 Portrait photo | `public/images/hunter-portrait.jpg` + `portrait` in `src/data/site.ts` | 4:5 ratio, about 1000×1250px. Shown in black and white automatically. |
+| ✅ Portrait photo | `public/images/hunter-portrait.jpg` | Added Nov 2026 (photo with your cat), shown in black and white. |
 | ✅ Calendly URL | `links.calendly` in `src/data/site.ts` | Set to calendly.com/hunterom8-proton. Shown in Contact and after a submission. |
 | 🟧 Instagram URL (optional) | `links.instagram` in `src/data/site.ts` | Adds it to the footer. |
 | 🟧 Privacy policy review | `privacy/index.html` | A plain-language draft, not legal advice. It names *Precision QA Consulting LLC* as the operator; please confirm that wording. |

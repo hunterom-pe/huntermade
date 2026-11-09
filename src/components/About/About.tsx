@@ -13,7 +13,7 @@ export function About() {
 
         <div className="about__body">
           <div className="about__portrait" data-reveal>
-            <Portrait src={site.portrait} />
+            <Portrait src={site.portrait} alt={site.portraitAlt} />
           </div>
 
           <div className="about__copy" data-reveal style={{ '--reveal-delay': '100ms' } as CSSProperties}>

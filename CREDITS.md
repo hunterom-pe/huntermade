@@ -8,6 +8,7 @@
 
 | `src/assets/work/pqa-*.webp`: Precision QA Consulting | Screenshots of the live site https://precisionqaconsulting.com (desktop 1440×900, mobile 390×844), captured 6 Nov 2026 | Hunter's own project. |
 | `src/assets/work/{asl,spec,rollit}-*.webp`: iOS apps | Hunter's own App Store screenshots, pulled from the public App Store listings (seller: Hunter Ortega-Mathews): asl id6778606848, Spec id6779336852, Roll It id6788539609 | Hunter's own work. Roll It screens that show third-party movie posters (the launch and result screens) were left out on purpose. |
+| `public/images/hunter-portrait.jpg`: About portrait | Hunter's own photo, supplied by Hunter (Nov 2026) | Cropped to 4:5, resized to 1000×1250, re-encoded with no metadata. Shown in black and white via CSS. |
 
 Moon processing: converted to grayscale, light contrast/sharpen, cropped ~6% per side, exported at 640/1000/1500px (WebP) plus a 1000px JPEG fallback.
 

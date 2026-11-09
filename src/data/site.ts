@@ -26,7 +26,8 @@ export const site = {
    * To add the real photo: put it in /public/images/ (e.g. hunter-portrait.jpg,
    * 4:5 ratio, ~1000x1250) and set: portrait: '/images/hunter-portrait.jpg'
    */
-  portrait: null as string | null,
+  portrait: '/images/hunter-portrait.jpg' as string | null,
+  portraitAlt: 'Hunter Ortega-Mathews smiling at home, holding his black cat, whose bright eyes look straight at the camera.',
 
   links: {
     github: 'https://github.com/hunterom-pe',
