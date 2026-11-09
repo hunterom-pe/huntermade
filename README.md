@@ -144,18 +144,18 @@ If the entry lands in **Spam**, mark it as verified.
 
 ---
 
-## Analytics and ads (all off by default)
+## Analytics and ads
 
-Nothing is tracked today: no cookies, no third-party scripts. To add measurement, set build environment variables in Netlify:
+**Umami Cloud** is on: it's cookieless, collects no personal data, and needs no consent banner.
+
+- **Config:** `site.analytics` in `src/data/site.ts` holds the public website ID. Set `umamiWebsiteId: null` to turn analytics off.
+- **Only the live site is counted:** `trackedDomains: 'huntermade.studio'` becomes Umami's `data-domains`, so local dev, `npm run preview` and Netlify preview deploys are ignored.
+- **Events:** successful contact-form submissions send a `contact_submitted` event with the project type. It appears under Events in Umami automatically.
+- **Campaigns:** Umami records UTM parameters on its own, so tag ad links like `?utm_source=instagram&utm_medium=paid_social&utm_campaign=<name>`.
 
 | Variable | Effect |
 | --- | --- |
-| `VITE_PLAUSIBLE_DOMAIN=yourdomain.com` | Loads Plausible, which is cookieless and privacy-friendly. You'll need a Plausible account. Tracks page views plus a `contact_submitted` event. |
 | `VITE_META_PIXEL_ID=…` | Prepares the Meta Pixel, but it **still won't load** until the visitor consents: call `grantMarketingConsent()` from `src/lib/metaPixel.ts`. You must add a consent UI and update the privacy policy first. It sends a `Lead` event only, never the form contents. |
-
-**Campaign links:** tag ads like `?utm_source=instagram&utm_medium=paid_social&utm_campaign=<name>`. The first-touch values for each browser session go along with any contact submission.
-
----
 
 ## Quality notes
 

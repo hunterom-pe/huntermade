@@ -59,7 +59,7 @@ Legend: ✅ done and verified locally · ⬜ to do · 🟧 needs Hunter's input 
 | ✅ Calendly URL | `links.calendly` in `src/data/site.ts` | Set to calendly.com/hunterom8-proton. Shown in Contact and after a submission. |
 | 🟧 Instagram URL (optional) | `links.instagram` in `src/data/site.ts` | Adds it to the footer. |
 | 🟧 Privacy policy review | `privacy/index.html` | A plain-language draft, not legal advice. It names *Precision QA Consulting LLC* as the operator; please confirm that wording. |
-| 🟧 Analytics choice | Netlify env vars | Plausible (`VITE_PLAUSIBLE_DOMAIN`) is ready. The Meta Pixel needs a consent UI and a privacy update before `VITE_META_PIXEL_ID` does anything. |
+| ✅ Analytics | `site.analytics` in `src/data/site.ts` | Umami Cloud, cookieless, counts huntermade.studio only. The Meta Pixel still needs a consent UI and a privacy update before `VITE_META_PIXEL_ID` does anything. |
 | 🟧 Notification inbox | Netlify Forms | Which email should receive inquiries. |
 
 ---

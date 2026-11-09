@@ -1,43 +1,60 @@
 /**
- * Analytics — provider-agnostic and OFF by default.
+ * Analytics: Umami Cloud (cookieless, no personal data).
  *
- * Nothing is loaded and nothing is sent unless you configure a provider with
- * build-time env vars (Netlify → Site configuration → Environment variables):
+ * Configured in src/data/site.ts → analytics.umamiWebsiteId. Set it to null to
+ * turn analytics off. The website ID is public (it appears in every page), so it
+ * lives in the code rather than in a secret.
  *
- *   VITE_PLAUSIBLE_DOMAIN=yourdomain.com   → loads Plausible (cookieless, privacy-friendly)
- *   VITE_META_PIXEL_ID=1234567890          → see lib/metaPixel.ts (also requires consent)
+ * `data-domains` restricts tracking to the production domain, so local
+ * development, `npm run preview` and Netlify preview deploys are never counted.
  *
- * Components call track() for meaningful events only (e.g. a form submission).
+ * Components call track() for meaningful events only (e.g. a successful form
+ * submission). Umami records UTM campaign parameters automatically.
+ *
+ * Meta Pixel stays separate and disabled (see lib/metaPixel.ts).
  */
+import { site } from '../data/site'
 import { loadMetaPixel, trackMetaPixel } from './metaPixel'
 
 type Props = Record<string, string | number | boolean>
 
 declare global {
   interface Window {
-    plausible?: ((event: string, opts?: { props?: Props }) => void) & { q?: unknown[] }
+    umami?: { track: (event: string, data?: Props) => void }
   }
 }
 
-const PLAUSIBLE_DOMAIN = import.meta.env.VITE_PLAUSIBLE_DOMAIN as string | undefined
+export const UMAMI_SCRIPT = 'https://cloud.umami.is/script.js'
 
-export function initAnalytics(): void {
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+
+export function initAnalytics(
+  config: { websiteId?: string | null; domains?: string } = {
+    websiteId: site.analytics.umamiWebsiteId,
+    domains: site.analytics.trackedDomains,
+  },
+): void {
   if (typeof window === 'undefined') return
-  if (PLAUSIBLE_DOMAIN && !document.querySelector('script[data-domain]')) {
-    window.plausible =
-      window.plausible ||
-      Object.assign((...args: unknown[]) => (window.plausible!.q = window.plausible!.q || []).push(args), { q: [] })
+
+  const id = config.websiteId?.trim()
+  if (id && UUID_RE.test(id) && !document.querySelector(`script[src="${UMAMI_SCRIPT}"]`)) {
     const s = document.createElement('script')
     s.defer = true
-    s.dataset.domain = PLAUSIBLE_DOMAIN
-    s.src = 'https://plausible.io/js/script.js'
+    s.src = UMAMI_SCRIPT
+    s.dataset.websiteId = id
+    if (config.domains) s.dataset.domains = config.domains
     document.head.appendChild(s)
   }
+
   loadMetaPixel()
 }
 
 export function track(event: string, props: Props = {}): void {
   if (typeof window === 'undefined') return
-  window.plausible?.(event, { props })
+  try {
+    window.umami?.track(event, props)
+  } catch {
+    /* analytics must never break the page */
+  }
   trackMetaPixel(event, props)
 }

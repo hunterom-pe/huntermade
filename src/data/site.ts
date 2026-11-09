@@ -29,6 +29,16 @@ export const site = {
   portrait: '/images/hunter-portrait.jpg' as string | null,
   portraitAlt: 'Hunter Ortega-Mathews smiling at home, holding his black cat, whose bright eyes look straight at the camera.',
 
+  /**
+   * Analytics (Umami Cloud). Set umamiWebsiteId to null to turn tracking off.
+   * trackedDomains limits counting to the live site (comma-separated, no www
+   * needed once www redirects). See src/lib/analytics.ts.
+   */
+  analytics: {
+    umamiWebsiteId: 'cb8ddcde-d838-48c6-ad86-6e2d260a9a3b' as string | null,
+    trackedDomains: 'huntermade.studio',
+  },
+
   links: {
     github: 'https://github.com/hunterom-pe',
     instagram: null as string | null, // add when ready
