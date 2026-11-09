@@ -53,6 +53,8 @@
   --space-xl: 3rem;
   --space-2xl: clamp(3rem, 2rem + 4vw, 6rem);
   --space-3xl: clamp(4.5rem, 3rem + 6vw, 9rem);
+  --space-section: clamp(3.75rem, 2.5rem + 5vw, 7.5rem); /* tighter section padding (~15% < 3xl) */
+  --space-seam: clamp(2rem, 1rem + 3.5vw, 4rem); /* where one section flows straight into the next */
 
   --gutter: clamp(1rem, 0.6rem + 2vw, 2.5rem);
   --max-width: 1600px;

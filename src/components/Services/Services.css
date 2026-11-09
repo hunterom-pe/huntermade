@@ -1,5 +1,6 @@
 .services {
-  padding-block: var(--space-3xl);
+  /* bottom stays small: the Work heading rule is the single divider between the two */
+  padding-block: var(--space-section) var(--space-l);
   background: var(--cream);
   border-top: 1px solid var(--ink);
 }
@@ -24,6 +25,11 @@
 
 .service:first-child {
   border-top: 1px solid var(--ink);
+}
+
+/* No closing rule under the last row: Work's heading rule does that job */
+.service:last-child {
+  border-bottom: 0;
 }
 
 .service__number {

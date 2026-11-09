@@ -3,9 +3,8 @@
    ========================================================================== */
 
 .work {
-  padding-block: var(--space-3xl);
+  padding-block: var(--space-seam) var(--space-section);
   background: var(--cream);
-  border-top: 1px solid var(--ink);
 }
 
 .work__projects {
@@ -314,7 +313,7 @@
 
 @media (min-width: 60em) {
   .work__projects {
-    gap: var(--space-3xl);
+    gap: var(--space-2xl);
   }
 
   .project--feature {
@@ -338,7 +337,7 @@
   }
 
   .project--rollit {
-    margin-top: var(--space-3xl);
+    margin-top: var(--space-2xl); /* keeps the staggered pair */
   }
 
   .project--pair {

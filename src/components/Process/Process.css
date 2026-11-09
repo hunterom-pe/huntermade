@@ -1,6 +1,6 @@
 .process {
   position: relative;
-  padding-block: var(--space-3xl);
+  padding-block: var(--space-section);
   background: var(--orange);
   color: var(--ink);
   border-top: 1px solid var(--ink);
