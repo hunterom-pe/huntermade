@@ -1,7 +1,8 @@
 /* FAQ — deliberately compact: tighter padding than other sections, all collapsed */
 
 .faq {
-  padding-block: var(--space-2xl);
+  /* slightly shorter bottom so FAQ flows into Contact (≈61px desktop, 48px phone) */
+  padding-block: var(--space-2xl) clamp(3rem, 2rem + 2vw, 3.75rem);
   background: var(--cream);
   border-top: 1px solid var(--ink);
 }

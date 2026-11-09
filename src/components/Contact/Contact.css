@@ -1,5 +1,6 @@
 .contact {
-  padding-block: var(--space-3xl);
+  /* top uses the tighter section rhythm; bottom unchanged */
+  padding-block: var(--space-section) var(--space-3xl);
   background: var(--orange);
   border-top: 1px solid var(--ink);
 }
